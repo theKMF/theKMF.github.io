@@ -52,8 +52,14 @@ body{
 }
 
 .faultyChoice{
+    /*
     background-color: #ff1d00;
     box-shadow: 0px 5px 0px gold;
+    */
+    -webkit-animation: errorFlash .5s; /* Safari 4+ */
+  -moz-animation:    errorFlash .5s; /* Fx 5+ */
+  -o-animation:      errorFlash .5s; /* Opera 12+ */
+  animation:         errorFlash .5s; /* IE 10+, Fx 29+ */
 }
 
 .output{

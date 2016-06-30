@@ -6,6 +6,7 @@ var codeLength = 0;
 var numberOfAlternatives = 0;
 var debugMode = true;
 var lastBtn;
+var faultyChoice;
 
 DomReady.ready(function () {
     setUpNewGame(4,6);
@@ -49,7 +50,6 @@ function resetInputButtons(){
     var codeSnippet = "";
     for(i; i<numberOfAlternatives; i++){
         var tmpTrgt = theOptions[i];
-        debugOut(tmpTrgt);
         document.getElementById(tmpTrgt).className = 'inputBtn';
     }
 }
@@ -68,7 +68,6 @@ function generateSequence(howMany){
         newArray.push(tmpVal);
     }
     codeArray = newArray.slice(0);
-    debugOut(codeArray);
 }
 
 function enterCode(whatLabel){
@@ -78,7 +77,14 @@ function enterCode(whatLabel){
         resetCode();
         resetInputButtons();
         lastBtn.className += ' faultyChoice';
+        faultyChoice = lastBtn;
+        setTimeout(removeErrorStyle, 450);
     }
+}
+
+//Removes the error flash style from a btton so that it can be pressed twice and give eroor flash
+function removeErrorStyle(){
+    faultyChoice.className = 'inputBtn';
 }
 
 function correct(){
@@ -105,10 +111,14 @@ function resetCode(){
     document.getElementById('code').innerHTML = tmpStr;
 }
 
-
-function myFunction() {
-    setUpNewGame(codeLength,numberOfAlternatives);
+function randomGame(){
+    var randomCodeLength = 4;
+    var randomNumOfButtons = 3;
+    randomCodeLength += getRandomInt(5);
+    randomNumOfButtons += getRandomInt(4);
+    setUpNewGame(randomCodeLength,randomNumOfButtons*3);
 }
+
 
 function testRandomInt(howMany, theMax){
     for(var i = 0; i < howMany; i++){
