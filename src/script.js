@@ -4,7 +4,7 @@ var codeArray = [];
 var guessIndex = 0;
 var codeLength = 0;
 var numberOfAlternatives = 0;
-var debugMode = false;
+var debugMode = true;
 var lastBtn;
 
 DomReady.ready(function () {
@@ -17,7 +17,7 @@ DomReady.ready(function () {
 function setUpNewGame(howLong,howManyAlternatives){
     codeLength = howLong;
     numberOfAlternatives = howManyAlternatives;
-    incorrect();
+    resetCode();
     generateInput(numberOfAlternatives);
     generateSequence(codeLength);
 }
@@ -43,6 +43,18 @@ function generateInput(howMany){
     document.getElementById("inputBtns").innerHTML = codeSnippet;
 }
 
+//turn off active buttons
+function resetInputButtons(){
+    var i=0;
+    var codeSnippet = "";
+    for(i; i<numberOfAlternatives; i++){
+        var tmpTrgt = theOptions[i];
+        debugOut(tmpTrgt);
+        document.getElementById(tmpTrgt).className = 'inputBtn';
+    }
+}
+
+
 //generates the hidden code
 function generateSequence(howMany){
     var tmpStr = "";
@@ -63,7 +75,9 @@ function enterCode(whatLabel){
     if(whatLabel == codeArray[guessIndex]){
         correct();
     }else{
-        incorrect();
+        resetCode();
+        resetInputButtons();
+        lastBtn.className += ' faultyChoice';
     }
 }
 
@@ -78,19 +92,19 @@ function correct(){
         tmpStr += "-";
     }
     lastBtn.className += ' selected';
-    document.getElementById('demo').innerHTML = tmpStr;
+    document.getElementById('code').innerHTML = tmpStr;
 }
 
-function incorrect(){
+//The code is set to "----" and the guessIndex to 0
+function resetCode(){
     tmpStr = "";
     guessIndex = 0;
     for(var i=0;i<codeLength;i++){
         tmpStr += "-";
     }
-    lastBtn.className += ' faultyChoice';
-    generateInput(numberOfAlternatives);
-    document.getElementById('demo').innerHTML = tmpStr;
+    document.getElementById('code').innerHTML = tmpStr;
 }
+
 
 function myFunction() {
     setUpNewGame(codeLength,numberOfAlternatives);
@@ -98,7 +112,7 @@ function myFunction() {
 
 function testRandomInt(howMany, theMax){
     for(var i = 0; i < howMany; i++){
-         document.getElementById("demo").innerHTML += getRandomInt(theMax) + " ";
+         document.getElementById('code').innerHTML += getRandomInt(theMax) + " ";
     }
 }
 
