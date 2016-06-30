@@ -33,6 +33,7 @@ function beep(item){
     enterCode(item['id']);
 }
 
+//set up the inputbuttons with zero correct guesses
 function generateInput(howMany){
     var i=0;
     var codeSnippet = "";
@@ -42,6 +43,7 @@ function generateInput(howMany){
     document.getElementById("inputBtns").innerHTML = codeSnippet;
 }
 
+//generates the hidden code
 function generateSequence(howMany){
     var tmpStr = "";
     var iterator = 0;
@@ -57,8 +59,8 @@ function generateSequence(howMany){
     debugOut(codeArray);
 }
 
-function enterCode(whatColour){
-    if(whatColour == codeArray[guessIndex]){
+function enterCode(whatLabel){
+    if(whatLabel == codeArray[guessIndex]){
         correct();
     }else{
         incorrect();
@@ -85,8 +87,9 @@ function incorrect(){
     for(var i=0;i<codeLength;i++){
         tmpStr += "-";
     }
-     generateInput(numberOfAlternatives);
-     document.getElementById('demo').innerHTML = tmpStr;
+    lastBtn.className += ' faultyChoice';
+    generateInput(numberOfAlternatives);
+    document.getElementById('demo').innerHTML = tmpStr;
 }
 
 function myFunction() {
