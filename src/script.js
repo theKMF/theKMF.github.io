@@ -10,7 +10,7 @@ var faultyChoice;
 var supportsVibrate;
 
 DomReady.ready(function () {
-    var supportsVibrate = "vibrate" in navigator;
+    supportsVibrate = "vibrate" in navigator;
     setUpNewGame(4,6);
 
 });
