@@ -100,7 +100,7 @@ function correct(){
 }
 
 function incorrect(){
-    navigator.vibrate(500);
+    navigator.vibrate(200);
     resetCode();
     resetInputButtons();
     lastBtn.className += ' faultyChoice';
