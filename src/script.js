@@ -8,7 +8,7 @@ var debugMode = false;
 var lastBtn;
 
 DomReady.ready(function () {
-    setUpNewGame(6,18);
+    setUpNewGame(4,6);
 
 });
 
