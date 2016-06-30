@@ -1,5 +1,5 @@
 var theSequence = [];
-var theOptions = ["Red","Green","Blue","Yellow", "Orange", "Pink","Doctor","Tango", "Zebra","Zoo","Charlie", "O.O", "Klaatu", "Barada", "Flier", "Continent", "Message", "Nikto"];
+var theOptions = ["Red","Green","Blue","Awesome", "Orange", "Pink","Doctor","Tango", "Zebra","Zoo","Win", "O.O", "Klaatu", "Barada", "Flier", "Epic", "Message", "Nikto"];
 var codeArray = [];
 var guessIndex = 0;
 var codeLength = 0;
