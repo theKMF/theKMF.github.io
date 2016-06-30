@@ -99,11 +99,11 @@ function correct(){
 }
 
 function incorrect(){
-    resetCode();
-    if(supportsVibrate){
-        navigator.vibrate(300);
-    }
     
+   
+        navigator.vibrate(300);
+    
+        resetCode();
         resetInputButtons();
         lastBtn.className += ' faultyChoice';
         faultyChoice = lastBtn;
