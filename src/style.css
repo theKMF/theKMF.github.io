@@ -1,0 +1,70 @@
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;	
+}
+
+html	{font-size: 5vw;} 
+body	{font-size: 1rem; } 
+h1  	{font-size: 4rem; } 
+h2		{font-size: 2.5rem;}
+h3   	{font-size: 2rem; } 
+
+h1, h3{
+	padding: 0;
+	margin: 0;
+	font-family: 'Bevan';	
+	font-weight: 400; 
+	text-align: center;
+}
+
+.miniText{
+	font-family: 'Ubuntu Mono', sans-serif;
+	font-size: smaller;
+	padding: 0;
+	margin: 0;
+	
+}
+
+body{
+	background-color: #46494f;
+	color: #fee895;
+	width: 100%;
+    font-family: 'Bevan';	
+}
+
+.inputBtn{
+    background-color: #fafafa;
+    min-width: 30%;
+    float: left;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 0.8rem; 
+    color: #090501;
+    text-align: center;
+    
+    box-shadow: 0px 5px 0px grey;
+}
+
+.selected{
+    background-color: YellowGreen;
+    box-shadow: inset 0px 5px 0px 0px OliveDrab;
+}
+
+.output{
+	font-size: 3rem;
+	text-align: center;
+	font-weight: 800;
+	font-family: 'Ubuntu Mono', sans-serif;
+
+}
+
+
+.wrapper{
+	height: 100%;
+}
+
+.lazyhide{
+    display: none;
+}
