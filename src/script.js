@@ -4,7 +4,7 @@ var codeArray = [];
 var guessIndex = 0;
 var codeLength = 0;
 var numberOfAlternatives = 0;
-var debugMode = true;
+var debugMode = false;
 var lastBtn;
 
 DomReady.ready(function () {
