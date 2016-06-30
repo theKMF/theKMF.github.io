@@ -7,6 +7,7 @@ var numberOfAlternatives = 0;
 var debugMode = true;
 var lastBtn;
 var faultyChoice;
+var supportsVibrate = "vibrate" in navigator;
 
 DomReady.ready(function () {
     setUpNewGame(4,6);
@@ -74,11 +75,7 @@ function enterCode(whatLabel){
     if(whatLabel == codeArray[guessIndex]){
         correct();
     }else{
-        resetCode();
-        resetInputButtons();
-        lastBtn.className += ' faultyChoice';
-        faultyChoice = lastBtn;
-        setTimeout(removeErrorStyle, 450);
+        incorrect();
     }
 }
 
@@ -99,6 +96,18 @@ function correct(){
     }
     lastBtn.className += ' selected';
     document.getElementById('code').innerHTML = tmpStr;
+}
+
+function incorrect(){
+    resetCode();
+    if(supportsVibrate){
+        navigator.vibrate(300);
+    }
+    
+        resetInputButtons();
+        lastBtn.className += ' faultyChoice';
+        faultyChoice = lastBtn;
+        setTimeout(removeErrorStyle, 450);
 }
 
 //The code is set to "----" and the guessIndex to 0
