@@ -7,7 +7,7 @@ var numberOfAlternatives = 0;
 var debugMode = true;
 var lastBtn;
 var faultyChoice;
-var supportsVibrate;
+var supportsVibrate = false;
 
 DomReady.ready(function () {
     supportsVibrate = "vibrate" in navigator;
@@ -100,7 +100,10 @@ function correct(){
 }
 
 function incorrect(){
-    navigator.vibrate(200);
+    if(supportsVibrate){
+        navigator.vibrate(200);
+    }
+    
     resetCode();
     resetInputButtons();
     lastBtn.className += ' faultyChoice';
